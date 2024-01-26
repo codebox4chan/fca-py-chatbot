@@ -128,7 +128,7 @@ class MessBot(Client):
                 page_number = 1
 
                 try:
-                    page_number = int(msg[len(prefix) + len("list "):])
+                    page_number = int(msg[len(prefix) + len("help "):])
                 except ValueError:
                     pass 
                 start_index = (page_number - 1) * commands_per_page
