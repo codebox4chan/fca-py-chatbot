@@ -125,7 +125,7 @@ class MessBot(Client):
             		self.sendmessage(author_id, thread_id, thread_type, reply)
             if msg.startswith(f"{prefix}list"):
                 commands_per_page = 3
-                page_number = 1
+                page_number = 0
 
                 try:
                     page_number = int(msg[len(prefix) + len("list "):])
