@@ -76,7 +76,7 @@ class MessBot(Client):
                 for loop_command_name, command_description, cooldown_count, _, _ in self.available_commands:
                     if msg.startswith(str(prefix) + loop_command_name):
                         if loop_command_name in self.cooldowns and not self.cooldowns[loop_command_name]:
-                            reply = "Too fast, please wait for a bit. | 🕜"
+                            reply = "Too fast, please wait for a bit."
                             self.sendmessage(author_id, thread_id, thread_type, reply)
                             return
 
@@ -125,7 +125,7 @@ class MessBot(Client):
             		self.sendmessage(author_id, thread_id, thread_type, reply)
             if msg.startswith(f"{prefix}list"):
                 commands_per_page = 3
-                page_number = 0
+                page_number = 1
 
                 try:
                     page_number = int(msg[len(prefix) + len("list "):])
