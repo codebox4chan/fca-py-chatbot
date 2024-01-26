@@ -141,7 +141,7 @@ class MessBot(Client):
                     self.sendmessage(author_id, thread_id, thread_type, reply)
                     image_path = "commands/images/mahiro.jpeg"
                     self.sendLocalImage(
-    image_path,message=Message(text="All available commands."),thread_id=thread_id,thread_type=thread_type)
+    image_path,message=Message(text="COMMAND LIST"),thread_id=thread_id,thread_type=thread_type)
                 else:
                     reply = "𝙽𝚘 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜 𝚏𝚘𝚞𝚗𝚍 𝚘𝚗 𝚝𝚑𝚎 𝚜𝚙𝚎𝚌𝚒𝚏𝚒𝚎𝚍 𝚙𝚊𝚐𝚎."
                     self.sendmessage(author_id, thread_id, thread_type, reply)
