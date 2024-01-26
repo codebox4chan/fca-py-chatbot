@@ -123,7 +123,7 @@ class MessBot(Client):
             	else:
             		reply = "❌𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙽𝙾𝚃 𝙵𝙾𝚄𝙽𝙳!"
             		self.sendmessage(author_id, thread_id, thread_type, reply)
-            if msg.startswith(f"cmd"):
+            if msg.startswith(f"${prefix}cmd"):
                 commands_per_page = 3
                 page_number = 1
 
@@ -137,7 +137,7 @@ class MessBot(Client):
                 if current_page_commands:
                     reply = f"𝙿𝚁𝙾𝙹𝙴𝙲𝚃 𝙼𝙰𝙷𝙸𝚁𝙾 - 𝙿𝙰𝙶𝙴 {page_number}\n" + "\n".join([f"╭─❍\n➠ {prefix}{name}: {description if description else 'No data!'}\n╰───────────⟡" for name, description, _, _, _ in current_page_commands] + [f"""╭─❍\n➠{prefix}setprefix: Change the prefix of the bot[ADMIN ONLY].\n╰───────────⟡"""])
                     if end_index < len(self.available_commands):
-                        reply += f"\nUse `cmd {page_number + 1}` to view the next page."
+                        reply += f"\nUse `${prefix}cmd {page_number + 1}` to view the next page."
                     self.sendmessage(author_id, thread_id, thread_type, reply)
                     image_path = "commands/images/mahiro.jpeg"
                     self.sendLocalImage(
