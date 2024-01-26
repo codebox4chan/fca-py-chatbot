@@ -159,7 +159,7 @@ class MessBot(Client):
                 	except:
                 		self.cooldown_flag = True
             else:
-                reply = "Too fast, please wait for a bit."
+                reply = "Too fast, please wait for a bit. | 🕜"
                 self.sendmessage(author_id, thread_id, thread_type, reply)
             if msg.startswith(f"{prefix}setprefix"):
             	if author_id in configuration['CONFIG']['BOT_INFO']['ADMIN_ID']:
