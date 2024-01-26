@@ -68,7 +68,7 @@ class MessBot(Client):
             prefix = str(configuration['CONFIG']['BOT_INFO']['PREFIX'])
             prefixs = ("prefix", "PREFIX", "Mahiro", "MAHIRO", "Prefix")
             if any(msg.startswith(prefix) for prefix in prefixs):
-                reply = f"𝚃𝚢𝚙𝚎 '{prefix}𝚕𝚒𝚜𝚝' 𝚝𝚘 𝚜𝚑𝚘𝚠 𝚊𝚟𝚊𝚒𝚕𝚊𝚋𝚕𝚎 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜."
+                reply = f"𝚃𝚢𝚙𝚎 'help' 𝚝𝚘 𝚜𝚑𝚘𝚠 𝚊𝚟𝚊𝚒𝚕𝚊𝚋𝚕𝚎 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜."
                 self.sendmessage(author_id, thread_id, thread_type, reply)
 
             file_path = "commands"
