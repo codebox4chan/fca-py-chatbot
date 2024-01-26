@@ -42,7 +42,6 @@ def get_available_commands(folder_path):
                     command_description = config['description']
                     command_cooldown = int(config['cooldown'])
                     command_version = config['version']
-                    command_usePrefix = config['usePrefix']
                     command_credits = config['credits']
                     available_commands.append((command_name, command_description, command_cooldown, command_version, command_credits))
     return available_commands
@@ -78,10 +77,10 @@ if self.cooldown_flag_2:
         use_prefix = config.get('usePrefix', True)  # Default to True if 'usePrefix' is not present
         if (msg.startswith(str(prefix) + loop_command_name) and use_prefix) or \
            (msg.startswith(loop_command_name) and not use_prefix):
-                        if loop_command_name in self.cooldowns and not self.cooldowns[loop_command_name]:
-                            reply = "Too fast, please wait for a bit. | 🕜"
-                            self.sendmessage(author_id, thread_id, thread_type, reply)
-                            return
+            if loop_command_name in self.cooldowns and not self.cooldowns[loop_command_name]:
+                reply = "Too fast, please wait for a bit. | 🕜"
+                self.sendmessage(author_id, thread_id, thread_type, reply)
+                return
 
                         self.cooldowns.setdefault(loop_command_name, True)
                         self.cooldown_flag_2 = False
