@@ -4,7 +4,7 @@ def command(input_value, thread_userid=None):
         "name": "ai",
         "version": "2.0.0",
         "description": "ask anything to hercai",
-        "usePrefix": false,
+        "usePrefix": False,
         "credits": "Kenneth Panio",
         "cooldown": "5"
     }
