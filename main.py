@@ -72,9 +72,11 @@ class MessBot(Client):
                 self.sendmessage(author_id, thread_id, thread_type, reply)
 
             file_path = "commands"
-            if self.cooldown_flag_2:
-                for loop_command_name, command_description, cooldown_count, _, _ in self.available_commands:
-                    if msg.startswith(str(prefix) + loop_command_name):
+if self.cooldown_flag_2:
+    for loop_command_name, command_description, cooldown_count, _, _ in self.available_commands:
+        use_prefix = config.get('usePrefix', True)  # Default to True if 'usePrefix' is not present
+        if (msg.startswith(str(prefix) + loop_command_name) and use_prefix) or \
+           (msg.startswith(loop_command_name) and not use_prefix):
                         if loop_command_name in self.cooldowns and not self.cooldowns[loop_command_name]:
                             reply = "Too fast, please wait for a bit. | 🕜"
                             self.sendmessage(author_id, thread_id, thread_type, reply)
