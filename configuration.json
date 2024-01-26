@@ -1,7 +1,7 @@
 {
    "CONFIG": {
       "BOT_INFO": {
-         "PREFIX": ".",
+         "PREFIX": "/",
          "ADMIN_ID": [
             "61550873742628"
          ],
