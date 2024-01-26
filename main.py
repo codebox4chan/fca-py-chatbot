@@ -42,8 +42,9 @@ def get_available_commands(folder_path):
                     command_description = config['description']
                     command_cooldown = int(config['cooldown'])
                     command_version = config['version']
+                    command_use_prefix = bool(config.get('usePrefix', True))
                     command_credits = config['credits']
-                    available_commands.append((command_name, command_description, command_cooldown, command_version, command_credits))
+                    available_commands.append((command_name, command_description, command_use_prefix, command_cooldown, command_version, command_credits))
     return available_commands
 
 class MessBot(Client):
@@ -74,7 +75,7 @@ class MessBot(Client):
             file_path = "commands"
             if self.cooldown_flag_2:
                 for loop_command_name, command_description, cooldown_count, _, _ in self.available_commands:
-                    use_prefix = config.get('usePrefix', True)  # Default to True if 'usePrefix' is not present
+                    use_prefix = config.get('usePrefix', True)
                     if (msg.startswith(str(prefix) + loop_command_name) and use_prefix) or \
                        (msg.startswith(loop_command_name) and not use_prefix):
                         if loop_command_name in self.cooldowns and not self.cooldowns[loop_command_name]:
