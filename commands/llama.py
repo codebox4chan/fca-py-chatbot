@@ -4,7 +4,7 @@ def command(input_value, thread_userid=None):
         "name": "llm",
         "version": "0.0.1",
         "description": "ask anything to llama.AI🦙",
-        "credits": "Kenneth panio",//credits api owner aliester crowley
+        "credits": "Kenneth panio", #credits api owner aliester crowley
         "cooldown": "2"
     }
     if input_value == "__config__":
