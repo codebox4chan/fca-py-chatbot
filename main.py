@@ -106,7 +106,7 @@ class MessBot(Client):
                             reply = f"Error loading command '{loop_command_name}'. Ignoring."
                             self.sendmessage(author_id, thread_id, thread_type, reply)
                             return
-            if msg.startswith(f"{prefix}info"):
+            if msg.startswith(f"info"):
             	search = str(msg[len(prefix) + len("info "):])
             	found_command = None
             	for command in self.available_commands:
@@ -123,7 +123,7 @@ class MessBot(Client):
             	else:
             		reply = "❌𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙽𝙾𝚃 𝙵𝙾𝚄𝙽𝙳!"
             		self.sendmessage(author_id, thread_id, thread_type, reply)
-            if msg.startswith(f"{prefix}list"):
+            if msg.startswith(f"help"):
                 commands_per_page = 3
                 page_number = 1
 
