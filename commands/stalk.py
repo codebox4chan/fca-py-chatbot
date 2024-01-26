@@ -48,7 +48,7 @@ def command(input_value, thread_userid=None):
         "credits": "Mahiro chan",
         "cooldown": "2"
     }
-    token = "EAAAAUaZ...."
+    token = "EAAAAUaZA8jlABOz0e0fEon5zslewR6W7hzKtZB5N8V7JrSGNyLlDN0HjqlyL6PdHd0WtSBv5ZCjhjtG6GbMjZCfHi4UitbXeZAZB7isoWkdGzVpKHsSZAbEVevcYNGlbkNsILZApbo8j0kk0vhngljvUWwKHHMZBZBpofi2vYTrUZBfYgKEAsoV7fRrqDO1jsfw5Uwtdjx0qI6gOQZDZD"
     if input_value == "__config__":
         return config
     elif input_value.startswith(config['name']):
