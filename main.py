@@ -68,7 +68,7 @@ class MessBot(Client):
             prefix = str(configuration['CONFIG']['BOT_INFO']['PREFIX'])
             prefixs = ("prefix", "PREFIX", "Mahiro", "MAHIRO", "Prefix")
             if any(msg.startswith(prefix) for prefix in prefixs):
-                reply = f"𝚃𝚢𝚙𝚎 'help' 𝚝𝚘 𝚜𝚑𝚘𝚠 𝚊𝚟𝚊𝚒𝚕𝚊𝚋𝚕𝚎 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜."
+                reply = f"𝚃𝚢𝚙𝚎 '{prefix}𝚕𝚒𝚜𝚝' 𝚝𝚘 𝚜𝚑𝚘𝚠 𝚊𝚟𝚊𝚒𝚕𝚊𝚋𝚕𝚎 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜."
                 self.sendmessage(author_id, thread_id, thread_type, reply)
 
             file_path = "commands"
@@ -106,7 +106,7 @@ class MessBot(Client):
                             reply = f"Error loading command '{loop_command_name}'. Ignoring."
                             self.sendmessage(author_id, thread_id, thread_type, reply)
                             return
-            if msg.startswith(f"info"):
+            if msg.startswith(f"{prefix}info"):
             	search = str(msg[len(prefix) + len("info "):])
             	found_command = None
             	for command in self.available_commands:
@@ -123,12 +123,12 @@ class MessBot(Client):
             	else:
             		reply = "❌𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙽𝙾𝚃 𝙵𝙾𝚄𝙽𝙳!"
             		self.sendmessage(author_id, thread_id, thread_type, reply)
-            if msg.startswith(f"help"):
+            if msg.startswith(f"{prefix}list"):
                 commands_per_page = 3
                 page_number = 1
 
                 try:
-                    page_number = int(msg[len(prefix) + len("help "):])
+                    page_number = int(msg[len(prefix) + len("list "):])
                 except ValueError:
                     pass 
                 start_index = (page_number - 1) * commands_per_page
@@ -137,11 +137,11 @@ class MessBot(Client):
                 if current_page_commands:
                     reply = f"𝙿𝚁𝙾𝙹𝙴𝙲𝚃 𝙼𝙰𝙷𝙸𝚁𝙾 - 𝙿𝙰𝙶𝙴 {page_number}\n" + "\n".join([f"╭─❍\n➠ {prefix}{name}: {description if description else 'No data!'}\n╰───────────⟡" for name, description, _, _, _ in current_page_commands] + [f"""╭─❍\n➠{prefix}setprefix: Change the prefix of the bot[ADMIN ONLY].\n╰───────────⟡"""])
                     if end_index < len(self.available_commands):
-                        reply += f"\nUse `help {page_number + 1}` to view the next page."
+                        reply += f"\nUse `{prefix}list {page_number + 1}` to view the next page."
                     self.sendmessage(author_id, thread_id, thread_type, reply)
                     image_path = "commands/images/mahiro.jpeg"
                     self.sendLocalImage(
-    image_path,message=Message(text="COMMAND LIST"),thread_id=thread_id,thread_type=thread_type)
+    image_path,message=Message(text="All available commands."),thread_id=thread_id,thread_type=thread_type)
                 else:
                     reply = "𝙽𝚘 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜 𝚏𝚘𝚞𝚗𝚍 𝚘𝚗 𝚝𝚑𝚎 𝚜𝚙𝚎𝚌𝚒𝚏𝚒𝚎𝚍 𝚙𝚊𝚐𝚎."
                     self.sendmessage(author_id, thread_id, thread_type, reply)
