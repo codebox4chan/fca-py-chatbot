@@ -42,7 +42,6 @@ def get_available_commands(folder_path):
                     command_description = config['description']
                     command_cooldown = int(config['cooldown'])
                     command_version = config['version']
-                    command_usePrefix = config['usePrefix']
                     command_credits = config['credits']
                     available_commands.append((command_name, command_description, command_cooldown, command_version, command_credits))
     return available_commands
