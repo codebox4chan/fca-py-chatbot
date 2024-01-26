@@ -6,6 +6,7 @@ def download_image(url, save_directory, filename):
     response = requests.get(url)
     if response.status_code == 200:
         save_path = os.path.join(save_directory, filename)
+        os.makedirs(save_directory, exist_ok=True)
         with open(save_path, 'wb') as file:
             file.write(response.content)
         return save_path
