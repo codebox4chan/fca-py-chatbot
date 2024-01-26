@@ -1,7 +1,7 @@
 def command(input_value, thread_userid=None):
     import requests
     config = {
-        "name": "llm",
+        "name": "llama",
         "version": "0.0.1",
         "description": "ask anything to llama.AI🦙",
         "credits": "Kenneth panio", #credits api owner aliester crowley
