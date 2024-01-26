@@ -37,12 +37,16 @@ def get_available_commands(folder_path):
             command_option = import_command_option(file_path)
             if command_option:
                 config = command_option("__config__")
-                if isinstance(config, dict) and 'name' in config and 'description' in config  and 'cooldown' in config and 'version' in config and 'credits' in config:
+                if isinstance(config, dict) and 'name' in config and 'description' in config and 'cooldown' in config and 'version' in config and 'credits' in config:
                     command_name = config['name']
                     command_description = config['description']
                     command_cooldown = int(config['cooldown'])
                     command_version = config['version']
                     command_credits = config['credits']
+                    use_prefix = config.get('usePrefix', True)  # Default to True if not specified
+                    if use_prefix:
+                        command_name = f"{configuration['CONFIG']['BOT_INFO']['PREFIX']}{command_name}"
+
                     available_commands.append((command_name, command_description, command_cooldown, command_version, command_credits))
     return available_commands
 
